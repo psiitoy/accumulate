@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:rdb="http://www.dangdang.com/schema/ddframe/rdb"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context.xsd
+                        http://www.dangdang.com/schema/ddframe/rdb
+                        http://www.dangdang.com/schema/ddframe/rdb/rdb.xsd">
+    <context:property-placeholder ignore-unresolvable="true"/>
+    <context:component-scan base-package="org.sprintdragon.opensource.shardingjdbc.repository"/>
+
+    <bean id="dbtbl_0" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://192.168.1.2:3306/sku_0"/>
+        <property name="username" value="root"/>
+        <property name="password" value="808080wd"/>
+    </bean>
+    <bean id="dbtbl_1" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://192.168.1.2:3306/sku_1"/>
+        <property name="username" value="root"/>
+        <property name="password" value="808080wd"/>
+    </bean>
+
+    <rdb:strategy id="orderTableStrategy" sharding-columns="SKU_ID"
+                  algorithm-expression="core_stocknum_pop_${SKU_ID.longValue() % 4}"/>
+    <rdb:data-source id="shardingDataSource">
+        <rdb:sharding-rule data-sources="dbtbl_0,dbtbl_1">
+            <rdb:table-rules>
+                <rdb:table-rule logic-table="core_stocknum_pop" actual-tables="core_stocknum_pop_${0..3}"
+                                table-strategy="orderTableStrategy"/>
+            </rdb:table-rules>
+            <rdb:default-database-strategy sharding-columns="SKU_ID"
+                                           algorithm-expression="dbtbl_${SKU_ID.longValue() % 4 / 2}"/>
+        </rdb:sharding-rule>
+    </rdb:data-source>
+
+</beans>

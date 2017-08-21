@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="201.5357142857143" y="82.0">java.util.concurrent.ConcurrentMap</node>
+    <node x="148.25" y="0.0">java.util.Map</node>
+    <node x="262.75" y="164.0">java.util.concurrent.ConcurrentHashMap</node>
+    <node x="17.75" y="164.0">java.util.concurrent.ConcurrentSkipListMap</node>
+    <node x="0.0" y="82.0">java.util.SortedMap</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="java.util.concurrent.ConcurrentSkipListMap" target="java.util.SortedMap">
+      <point x="-75.0" y="-16.0" />
+      <point x="55.25" y="139.0" />
+      <point x="66.0" y="139.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="java.util.concurrent.ConcurrentSkipListMap" target="java.util.Map">
+      <point x="0.0" y="-16.0" />
+      <point x="130.25" y="139.0" />
+      <point x="142.5" y="139.0" />
+      <point x="142.5" y="62.0" />
+      <point x="179.0" y="62.0" />
+      <point x="-10.25" y="16.0" />
+    </edge>
+    <edge source="java.util.concurrent.ConcurrentSkipListMap" target="java.util.concurrent.ConcurrentMap">
+      <point x="75.0" y="-16.0" />
+      <point x="205.25" y="139.0" />
+      <point x="243.0357142857143" y="139.0" />
+      <point x="-41.5" y="16.0" />
+    </edge>
+    <edge source="java.util.concurrent.ConcurrentHashMap" target="java.util.concurrent.ConcurrentMap">
+      <point x="-51.0" y="-16.0" />
+      <point x="313.75" y="139.0" />
+      <point x="326.03571428571433" y="139.0" />
+      <point x="41.5" y="16.0" />
+    </edge>
+    <edge source="java.util.concurrent.ConcurrentMap" target="java.util.Map">
+      <point x="0.0" y="-16.0" />
+      <point x="284.53571428571433" y="62.0" />
+      <point x="199.5" y="62.0" />
+      <point x="10.25" y="16.0" />
+    </edge>
+    <edge source="java.util.concurrent.ConcurrentHashMap" target="java.util.Map">
+      <point x="51.0" y="-16.0" />
+      <point x="415.75" y="139.0" />
+      <point x="382.3571428571429" y="139.0" />
+      <point x="382.3571428571429" y="52.0" />
+      <point x="220.0" y="52.0" />
+      <point x="30.75" y="16.0" />
+    </edge>
+    <edge source="java.util.SortedMap" target="java.util.Map">
+      <point x="0.0" y="-16.0" />
+      <point x="66.0" y="52.0" />
+      <point x="158.5" y="52.0" />
+      <point x="-30.75" y="16.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="233.5" y="98.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

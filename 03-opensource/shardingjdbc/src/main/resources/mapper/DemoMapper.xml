@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sprintdragon.opensource.shardingjdbc.repository.LskSkuStockMapper">
+
+    <resultMap type="org.sprintdragon.opensource.shardingjdbc.repository.LspSkuStock"
+               id="lspSkuStock">
+        <result column="ID" property="id" jdbcType="BIGINT"/>
+        <result column="SKU_ID" property="skuId" jdbcType="BIGINT"/>
+        <result column="STORE_ID" property="storeId" jdbcType="BIGINT"/>
+        <result column="VENDER_ID" property="venderId" jdbcType="BIGINT"/>
+        <result column="NUM_STOCK" property="numStock" jdbcType="BIGINT"/>
+        <result column="REMARK" property="remark" jdbcType="VARCHAR"/>
+        <result column="CREATED" property="created" jdbcType="TIMESTAMP"/>
+        <result column="MODIFIED" property="modified" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!-- 基础数据列 -->
+    <sql id="Base_Column_List">
+        ID,SKU_ID,STORE_ID,VENDER_ID,NUM_STOCK,REMARK,CREATED,MODIFIED
+    </sql>
+
+    <!-- 基础查询 -->
+    <sql id="Base_Column_Where">
+        <where>
+            <if test="skuId != null">
+                and SKU_ID = #{skuId}
+            </if>
+        </where>
+    </sql>
+
+    <!-- 基础排序 -->
+    <sql id="Base_Column_OrderById"> ORDER BY ID DESC </sql>
+
+    <!-- 插入方法 -->
+    <insert id="insert" parameterType="org.sprintdragon.opensource.shardingjdbc.repository.LspSkuStock">
+        INSERT INTO core_stocknum_pop
+        (SKU_ID,STORE_ID,VENDER_ID,NUM_STOCK,REMARK,CREATED,MODIFIED)
+        VALUES
+        (#{skuId},#{storeId},#{venderId},#{numStock},#{remark},now(),now())
+    </insert>
+
+
+    <select id="findById" resultMap="lspSkuStock" parameterType="java.lang.Long">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM core_stocknum_pop
+        WHERE SKU_ID = #{skuId}
+    </select>
+
+</mapper>
