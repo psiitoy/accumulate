@@ -1,16 +1,16 @@
 package org.sprintdragon.opensource.shardingjdbc.config;//package org.sprintdragon.experiment.shardingjdbc.config;
 //
 //import com.alibaba.druid.pool.DruidDataSource;
-//import com.jd.pop.task.performance.node.watcher.InstanceWatcher;
-//import com.jd.pop.task.performance.shared.arbitrate.config.ArbitrateConfig;
-//import com.jd.pop.task.performance.shared.arbitrate.config.ArbitrateConfigRegistry;
-//import com.jd.pop.task.performance.shared.arbitrate.event.InstanceOperateEvent;
-//import com.jd.pop.task.performance.shared.arbitrate.event.UnitOperateEvent;
-//import com.jd.pop.task.performance.shared.model.DbInfo;
-//import com.jd.pop.task.performance.shared.model.Instance;
-//import com.jd.pop.task.performance.shared.model.ServerInfo;
-//import com.jd.pop.task.performance.shared.model.Unit;
-//import com.jd.pop.task.performance.shared.model.enums.MsType;
+//import .task.performance.node.watcher.InstanceWatcher;
+//import .task.performance.shared.arbitrate.config.ArbitrateConfig;
+//import .task.performance.shared.arbitrate.config.ArbitrateConfigRegistry;
+//import .task.performance.shared.arbitrate.event.InstanceOperateEvent;
+//import .task.performance.shared.arbitrate.event.UnitOperateEvent;
+//import .task.performance.shared.model.DbInfo;
+//import .task.performance.shared.model.Instance;
+//import .task.performance.shared.model.ServerInfo;
+//import .task.performance.shared.model.Unit;
+//import .task.performance.shared.model.enums.MsType;
 //import lombok.extern.slf4j.Slf4j;
 //import org.hibernate.jpa.HibernatePersistenceProvider;
 //import org.springframework.beans.factory.InitializingBean;
@@ -32,10 +32,10 @@ package org.sprintdragon.opensource.shardingjdbc.config;//package org.sprintdrag
 //import java.util.Properties;
 //
 ///**
-// * Created by wangdi on 17-2-21.
+// * Created by on 17-2-21.
 // */
 //@Configuration
-//@EnableJpaRepositories(basePackages = "com.jd.pop.task.performance.node.biz.repository")
+//@EnableJpaRepositories(basePackages = "com.task.performance.node.biz.repository")
 //@EnableTransactionManagement
 //@PropertySource("classpath:application.properties")
 //@Slf4j
