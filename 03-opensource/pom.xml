@@ -28,6 +28,8 @@
         <module>springbatch</module>
         <module>springboot-rest</module>
         <module>netty</module>
+        <module>quasar</module>
+        <module>javaagent</module>
     </modules>
 
     <properties>
