@@ -13,6 +13,7 @@ public class SimpleDisruptor {
 
         void produce(Object newItem) {
             ring[++writeCount % ring.length] = newItem;
+            readBarrier++;
         }
     }
 
@@ -22,14 +23,15 @@ public class SimpleDisruptor {
             int currentRead = 0;
             while (true) {
                 if (readBarrier > currentRead) {
-                    consume(currentRead);
+                    consume(ring[currentRead % ring.length]);
                     currentRead++;
                 }
             }
         }
 
-        private void consume(int currentRead) {
-            System.out.println("##" + ring[currentRead % ring.length]);
+        private void consume(Object obj) {
+            //doSomething
+            System.out.println("##" + obj);
         }
     }
 
